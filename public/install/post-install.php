@@ -5,6 +5,7 @@
         require_once("../../installScript.php");
     }
     ?>
+    <a href="../dashboard/index.php">Dashboard</a>
 </main>
 
 <?php include("../templates/footer.php"); ?>
