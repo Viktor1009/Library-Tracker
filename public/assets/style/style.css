@@ -4,6 +4,7 @@ footer {
   display: flex;
   padding-left: 10%;
   padding-right: 10%;
+  color: #f3f1de;
 }
 
 footer div {
@@ -34,4 +35,19 @@ div.socials div {
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
 }/*# sourceMappingURL=style.css.map */

@@ -6,6 +6,7 @@ footer {
     display: flex;
     padding-left: 10%;
     padding-right: 10%;
+    color: variable.$contrast-color;
 }
 footer div {
     flex: 1;
@@ -13,14 +14,11 @@ footer div {
 div.socials {
     padding-left: 10px;
     padding-right: 10px;
-
 }
 div.socials div{
     display: flex;
     align-items: flex-start;
 }
-
-
 .socials-container {
     width: 30px;
     height: 30px;
