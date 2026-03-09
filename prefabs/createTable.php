@@ -14,7 +14,7 @@ $sql = "CREATE TABLE IF NOT EXISTS Users (
     user_password VARCHAR(100),
     user_pfp VARCHAR(500)
 )";
-makeTabel($conn, $sql, "User");
+makeTabel($conn, $sql, "Users");
 
 $sql = "CREATE TABLE IF NOT EXISTS Library (
     user_id INT,
@@ -25,9 +25,9 @@ $sql = "CREATE TABLE IF NOT EXISTS Library (
     book_notes VARCHAR(200),
 
     FOREIGN KEY (user_id) REFERENCES Users(user_id)
-    ON DELETE CASCADE
+    ON DELETE CASCADE,
 
-    FOREIGN KEY (book_id) REFERENCES books(book_id)
+    FOREIGN KEY (book_id) REFERENCES Books(book_id)
     ON DELETE CASCADE
 )";
 makeTabel($conn, $sql, "Library");
