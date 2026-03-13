@@ -1,6 +1,15 @@
 @use "variable";
 
 header {
+    display: flex;
     background-color: variable.$accent-color;
     color: variable.$contrast-color;
+    height: 100px;
+}
+header img.logo{
+    position: relative;
+    padding: 10px;
+}
+header h1 {
+    align-self: center;
 }
