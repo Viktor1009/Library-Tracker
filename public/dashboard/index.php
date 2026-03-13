@@ -21,7 +21,7 @@
             <h5>
                 <?php echo $row["book_your_rating"]; ?>
             </h5>
-            <h5>
+            <h5><!-- book status-->
                 <?php 
                 if($row["book_status"] == 1){
                     echo "Reading";
