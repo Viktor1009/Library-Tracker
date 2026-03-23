@@ -23,12 +23,19 @@ if($_POST){
         
         if($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
-                echo '<button>'.$row["book_name"].'</button>';
+                echo   
+                '<a href="input.php?name='.$row["book_name"].'">
+                    <button>'.$row["book_name"].'</button>
+                </a>';
             }
         } 
         else {
-        echo '<button>Lägg till denna bok</button>';
+        
         }
+        echo
+        '<a href="input.php?name='.$_POST["name"].'">
+            <button>Lägg till '.$_POST["name"]. '</button>
+        </a>';
     }
 }
 $conn->close();

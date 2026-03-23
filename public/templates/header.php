@@ -14,4 +14,3 @@
         <img class="logo"src="../assets/img/Library-Tracker-Logo.png" alt="">
         <h1>Library-Tracker</h1>
     </header>
-<main>
