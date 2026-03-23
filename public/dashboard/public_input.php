@@ -1,4 +1,6 @@
-<?php include("../templates/header.php"); 
+<?php include("../templates/header.php"); ?>
+
+<?php
 var_dump($_POST);
 
 ?>
@@ -7,7 +9,8 @@ var_dump($_POST);
 
 <form action="" method="POST" enctype="multipart/form-data">
     <input type="text" name="name" placeholder="name" value="<?php echo $_GET['name']?>">
-    <input class="btn btn-primary" type="submit" value="books_info" name="posttype">
+    <input type="textarea" name="description" placeholder="description">
+    <input class="btn btn-primary" type="submit" value="books_submit" name="posttype">
 </form>
 
 <?php
