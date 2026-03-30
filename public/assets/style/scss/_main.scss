@@ -6,7 +6,6 @@
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 
     background-color: variable.$main-color;
     color: variable.$contrast-color;
@@ -15,4 +14,5 @@ main {
     flex: 1;
     padding-left: 100px;
     padding-right: 100px;
+    min-height: 100vh;
 }
