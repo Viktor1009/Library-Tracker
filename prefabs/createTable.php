@@ -20,7 +20,7 @@ $sql = "CREATE TABLE IF NOT EXISTS Library (
     user_id INT,
     book_id INT,
     book_page INT,
-    book_status INT,
+    book_status VARCHAR(50),
     book_your_rating float,
     book_notes VARCHAR(200),
 

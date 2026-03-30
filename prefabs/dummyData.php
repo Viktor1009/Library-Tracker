@@ -14,9 +14,9 @@
         ('1984', 'A dystopian novel about totalitarian society.');");
 
     $conn->query("INSERT INTO Library (user_id, book_id, book_page, book_status, book_your_rating, book_notes) VALUES
-        (1, 1, 120, 1, 4.5, 'Very practical so far.'),
-        (1, 2, 350, 2, 5.0, 'One of the best programming books.'),
-        (1, 4, 50, 1, 4.0, 'Interesting world building.'),
-        (1, 5, 328, 2, 4.2, 'Creepy but good.'),
-        (1, 3, 200, 1, 4.8, 'Super motivating.');");
+        (1, 1, 120, 'Reading', 4.5, 'Very practical so far.'),
+        (1, 2, 350, 'On Hold', 5.0, 'One of the best programming books.'),
+        (1, 4, 50, 'Reading', 4.0, 'Interesting world building.'),
+        (1, 5, 328, 'Plan to Read', 4.2, 'Creepy but good.'),
+        (1, 3, 200, 'Reading', 4.8, 'Super motivating.');");
 ?>

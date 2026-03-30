@@ -21,24 +21,8 @@
             <h5>
                 <?php echo $row["book_your_rating"]; ?>
             </h5>
-            <h5><!-- book status-->
-                <?php 
-                if($row["book_status"] == 1){
-                    echo "Reading";
-                }
-                elseif($row["book_status"] == 2){
-                    echo "On Hold";
-                }
-                elseif($row["book_status"] == 3){
-                    echo "Plan to Read";
-                }
-                elseif($row["book_status"] == 4){
-                    echo "Completed";
-                }
-                elseif($row["book_status"] == 5){
-                    echo "Dropped";
-                }
-                ?>
+            <h5>
+                <?php echo $row["book_status"]; ?>
             </h5>
             <h5>
                 <?php echo $row["book_page"]; ?>
