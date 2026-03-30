@@ -24,18 +24,18 @@ if($_POST){
         if($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
                 echo   
-                '<a href="input.php?name='.$row["book_name"].'">
+                '<a href="private_input.php?name='.$row["book_name"].'">
                     <button>'.$row["book_name"].'</button>
                 </a>';
             }
         } 
         else {
-        
-        }
         echo
-        '<a href="input.php?name='.$_POST["name"].'">
-            <button>Lägg till '.$_POST["name"]. '</button>
+        '<a href="public_input.php?name='.$_POST["name"].'">
+            <button>Add '.$_POST["name"]. '</button>
         </a>';
+        }
+        
     }
 }
 $conn->close();
