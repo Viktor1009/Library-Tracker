@@ -13,4 +13,12 @@
     <header>
         <img class="logo"src="../assets/img/Library-Tracker-Logo.png" alt="">
         <h1>Library-Tracker</h1>
+        <?php
+        if($conn) {
+            echo 
+                '<a href="../dashboard/add.php">
+                    <button>Add a Book</button>
+                </a>';
+        }
+        ?>
     </header>
