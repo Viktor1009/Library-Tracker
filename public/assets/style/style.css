@@ -69,6 +69,15 @@ header h1 {
   align-self: center;
 }
 
+a {
+  margin-left: 50px;
+  display: flex;
+}
+
+a button {
+  align-self: center;
+}
+
 * {
   padding: 0px;
   margin: 0px;
