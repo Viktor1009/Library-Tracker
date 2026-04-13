@@ -6,12 +6,22 @@
         require("../../conn.php");
         if($_POST["posttype"] == "Update"){
             echo "Update";
+            $user_id = 1;
 
             $sql = "UPDATE Library SET book_status = ?, book_page = ?, book_notes = ? WHERE book_id = ?";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("sisi", $_POST["update_status"], $_POST["update_page"], $_POST["update_notes"], $_POST["update_id"]);
             $stmt->execute();
             $stmt->close();
+
+            $sql = "INSERT INTO Activity (user_id, book_id) VALUES (?, ?)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("ii", $user_id, $_POST["update_id"]);
+            $stmt->execute();
+            $stmt->close();
+
+            header("Location: index.php");
+            exit();
         }
     }
     
@@ -22,7 +32,7 @@
     $result = $conn->query($sql);
     if($result->num_rows > 0){
         while($row = $result->fetch_assoc()){ ?>
-            <form method="post" enctype="multipart/form-data">
+            <form method="post" enctype="multipart/form-data" class="input">
                 <input 
                     type="text" name="update_id" 
                     value="<?php echo $row["book_id"]?>" 
@@ -30,7 +40,7 @@
                 <input 
                     type="text" name="update_name" placeholder="name" 
                     value="<?php echo $row["book_name"];?>"
-                    readonly class="read-only">>
+                    readonly class="read-only">
                 <textarea 
                     type="text" name="update_description" placeholder="description"
                     readonly class="read-only"
@@ -39,7 +49,7 @@
                     type="text" name="update_status" 
                     value="<?php echo $row["book_status"];?>">
                 <input 
-                    type="text" name="update_page"
+                    type="number" name="update_page" min="0"
                     value="<?php echo $row["book_page"];?>">  
                 <!-- Din personliga rating bör vara en slider-->
                 <textarea 
