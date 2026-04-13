@@ -36,6 +36,7 @@ $book_id = $row['book_id'];
 
 <?php 
 if ($_POST) {
+    require("../../conn.php");
     if($_POST["posttype"] = "library_add") {    
         $user_id = 1; // ändra senare till riktig user
         $sql = "INSERT INTO Library (user_id, book_id, book_status, book_page, book_notes) VALUES (?, ?, ?, ?, ?)";

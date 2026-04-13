@@ -11,7 +11,9 @@
 </head>
 <body>
     <header>
-        <img class="logo"src="../assets/img/Library-Tracker-Logo.png" alt="">
+        <a href="../dashboard/index.php">
+            <img class="logo"src="../assets/img/Library-Tracker-Logo.png" alt="">
+        </a>
         <h1>Library-Tracker</h1>
         <?php
         if($conn) {

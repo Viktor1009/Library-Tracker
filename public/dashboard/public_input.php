@@ -17,6 +17,7 @@ $name = $_GET['name'] ?? '';
 
 <?php
 if ($_POST) {
+    require("../../conn.php");
     $sql = "Select * From Books Order By book_id Desc LIMIT 1";
     $res = $conn->query($sql);
     $data = $res->fetch_assoc();
