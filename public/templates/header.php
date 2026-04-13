@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <a href="../dashboard/index.php">
+        <a href="../dashboard/index.php" class="logo-dash">
             <img class="logo"src="../assets/img/Library-Tracker-Logo.png" alt="">
         </a>
         <h1>Library-Tracker</h1>
@@ -19,7 +19,7 @@
         if($conn) {
             echo 
                 '<a href="../dashboard/add.php">
-                    <button>Add a Book</button>
+                    <button class="btn">Add a Book</button>
                 </a>';
         }
         ?>

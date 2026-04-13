@@ -21,8 +21,7 @@
 
     $result = $conn->query($sql);
     if($result->num_rows > 0){
-        while($row = $result->fetch_assoc()){ 
-            var_dump($row);?>
+        while($row = $result->fetch_assoc()){ ?>
             <form method="post" enctype="multipart/form-data">
                 <input 
                     type="text" name="update_id" 

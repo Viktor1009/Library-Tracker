@@ -16,3 +16,10 @@ main {
     padding-right: 100px;
     min-height: 100vh;
 }
+.btn {
+    color: variable.$contrast-color;
+    background-color: variable.$accent-color;
+}
+a {
+    text-decoration: none;
+}

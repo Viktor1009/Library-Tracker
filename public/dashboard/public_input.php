@@ -21,7 +21,6 @@ if ($_POST) {
     $sql = "Select * From Books Order By book_id Desc LIMIT 1";
     $res = $conn->query($sql);
     $data = $res->fetch_assoc();
-    var_dump($data);
     if($_POST["posttype"] == "book_add" && $data["book_name"] != $_POST["name"]){
         $name = $_POST["name"];
         $description = $_POST["description"];
