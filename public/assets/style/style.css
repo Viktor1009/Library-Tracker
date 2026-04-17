@@ -78,6 +78,11 @@ a button {
   align-self: center;
 }
 
+.logo-dash {
+  margin: 0px;
+  padding: 0px;
+}
+
 * {
   padding: 0px;
   margin: 0px;
@@ -86,7 +91,6 @@ a button {
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   background-color: #24283b;
   color: #f3f1de;
 }
@@ -95,6 +99,16 @@ main {
   flex: 1;
   padding-left: 100px;
   padding-right: 100px;
+  min-height: 100vh;
+}
+
+.btn {
+  color: #f3f1de;
+  background-color: #1a1b26;
+}
+
+a {
+  text-decoration: none;
 }
 
 .read-only {

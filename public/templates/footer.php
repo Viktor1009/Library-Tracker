@@ -1,7 +1,8 @@
 <?php
 
 ?>
-<footer>
+    </main>
+    <footer>
         <div class="about">
             <h3>About</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae velit sit amet purus auctor hendrerit vel vitae risus. Fusce tempus elit velit. Suspendisse potenti. Morbi est mauris, scelerisque id turpis vel, pretium consequat metus. Fusce molestie libero vel neque faucibus tempus. Etiam dignissim placerat dapibus.</p>

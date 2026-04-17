@@ -33,10 +33,15 @@ $sql = "CREATE TABLE IF NOT EXISTS Library (
 makeTabel($conn, $sql, "Library");
 
 $sql = "CREATE TABLE IF NOT EXISTS Activity (
+    activity_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
+    book_id INT,
     edited_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     
     FOREIGN KEY (user_id) REFERENCES Users(user_id)
+    ON DELETE CASCADE,
+
+    FOREIGN KEY (book_id) REFERENCES Library(book_id)
     ON DELETE CASCADE
 )";
 makeTabel($conn, $sql, "Activity");

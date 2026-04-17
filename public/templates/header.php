@@ -11,14 +11,17 @@
 </head>
 <body>
     <header>
-        <img class="logo"src="../assets/img/Library-Tracker-Logo.png" alt="">
+        <a href="../dashboard/index.php" class="logo-dash">
+            <img class="logo"src="../assets/img/Library-Tracker-Logo.png" alt="">
+        </a>
         <h1>Library-Tracker</h1>
         <?php
         if($conn) {
             echo 
                 '<a href="../dashboard/add.php">
-                    <button>Add a Book</button>
+                    <button class="btn">Add a Book</button>
                 </a>';
         }
         ?>
     </header>
+    <main>
