@@ -21,6 +21,10 @@
                 '<a href="../dashboard/add.php">
                     <button class="btn">Add a Book</button>
                 </a>';
+            echo
+                '<a href="../fetch/index.php">
+                    <button class="btn">Track Activity</button>
+                </a>';
         }
         ?>
     </header>
