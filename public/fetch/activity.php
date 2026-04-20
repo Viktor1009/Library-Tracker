@@ -1,15 +1,11 @@
-<?php include("../templates/header.php");?>
 <?php
+header('Content-Type: application/json');
 require("../../conn.php");
 
-$sql = "SELECT 
-            book_id,
-            edited_at as activity_date
-        FROM Activity
+$sql = "SELECT book_id, edited_at as activity_date FROM Activity
         ORDER BY edited_at ASC";
 
 $result = $conn->query($sql);
-
 $data = [];
 
 while($row = $result->fetch_assoc()){
@@ -18,4 +14,3 @@ while($row = $result->fetch_assoc()){
 
 echo json_encode($data);
 ?>
-<?php include("../templates/footer.php"); ?>

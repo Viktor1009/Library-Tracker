@@ -15,11 +15,11 @@
             <div class="calendar-navigation">
                 <span id="calendar-prev" 
                       class="material-symbols-rounded">
-                    chevron_left
+                      <
                 </span>
                 <span id="calendar-next" 
                       class="material-symbols-rounded">
-                    chevron_right
+                      >
                 </span>
             </div>
         </header>
@@ -180,20 +180,40 @@
     }
 </style>
 <script>
+    let activityMap = {};
+    let maxActivity = 0;
 
-    async function getDates() {
+    async function getData() {
         let res = await fetch("http://library-tracker.local:8080/fetch/activity.php");
         let data = await res.json();
 
-        console.log(data);
+        data.forEach(item => {
+            let book_id = item.book_id;
 
-        data.forEach(assignDays);
+            let [activity_day, activity_time] = item.activity_date.split(" ");
+
+            console.log("Book ID:", book_id);
+            console.log("Day:", activity_day);
+            console.log("Time:", activity_time);
+
+            if (!activityMap[activity_day]) {
+                activityMap[activity_day] = 0;
+            }
+
+            activityMap[activity_day]++;
+
+            if (activityMap[activity_day] > maxActivity) {
+                maxActivity = activityMap[activity_day];
+            }
+
+        });
+        console.log("Activity Map:", activityMap);
+        console.log("Max Activity:", maxActivity);
+
+        manipulate();
     }
-    function assignDays(){
 
-    }
-
-    getDates();
+    getData();
     
     let date = new Date();
     let year = date.getFullYear();
@@ -223,15 +243,23 @@
             lit += `<li class="inactive">${monthlastdate - i + 1}</li>`;
         }
 
-        
         for (let i = 1; i <= lastdate; i++) {
             let isToday = (i === date.getDate()
             && month === new Date().getMonth()
             && year === new Date().getFullYear()) ? "active" : "";
 
-            let highlightClass = (clickedDay === i) ? "highlight" : "";
+            let dayString = `${year}-${String(month + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
+            let activityCount = activityMap[dayString] || 0;
 
-            lit += `<li class="${isToday} ${highlightClass}" data-day="${i}">${i}</li>`;
+            let intensity = activityCount / maxActivity;
+            let highlightStyle = "";
+
+            if (activityCount > 0) {
+                let opacity = 0.2 + (0.8 * intensity);
+                highlightStyle = `style="background-color: rgba(105, 255, 100, ${opacity}); border-radius:50%;"`;
+            }
+
+            lit += `<li class="${isToday}" data-day="${i}" ${highlightStyle}>${i}</li>`;
         }
 
 
@@ -284,4 +312,6 @@
             manipulate();
         });
     });
+
+    get_Data();
 </script>
