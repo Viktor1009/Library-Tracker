@@ -5,22 +5,27 @@ header {
     background-color: variable.$accent-color;
     color: variable.$contrast-color;
     height: 100px;
-}
-header img.logo{
-    position: relative;
-    padding: 10px;
-}
-header h1 {
-    align-self: center;
-}
-a {
-    margin-left: 50px;
-    display: flex;
-}
-a button {
-    align-self: center;
-}
-.logo-dash {
-    margin: 0px;
-    padding: 0px;
+
+    img.logo {
+        position: relative;
+        padding: 10px;
+    }
+
+    h1 {
+        align-self: center;
+    }
+
+    a {
+        margin-left: 50px;
+        display: flex;
+    }
+
+    a button {
+        align-self: center;
+    }
+
+    .logo-dash {
+        margin: 0px;
+        padding: 0px;
+    }
 }

@@ -59,26 +59,21 @@ header {
   color: #f3f1de;
   height: 100px;
 }
-
 header img.logo {
   position: relative;
   padding: 10px;
 }
-
 header h1 {
   align-self: center;
 }
-
-a {
+header a {
   margin-left: 50px;
   display: flex;
 }
-
-a button {
+header a button {
   align-self: center;
 }
-
-.logo-dash {
+header .logo-dash {
   margin: 0px;
   padding: 0px;
 }

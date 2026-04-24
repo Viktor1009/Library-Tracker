@@ -1,4 +1,3 @@
-<?php include("../templates/header.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,8 +5,8 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,
         FILL,GRAD@20..48,100..700,0..1,-50..200">
-    </head>
-
+</head>
+<?php include("../templates/header.php"); ?>
 <body>
     <div class="calendar-container">
         <header class="calendar-header">
@@ -23,7 +22,6 @@
                 </span>
             </div>
         </header>
-
         <div class="calendar-body">
             <ul class="calendar-weekdays">
                 <li>Sun</li>
@@ -44,21 +42,9 @@
 <?php include("../templates/footer.php"); ?>
 <style>
     * {
-        margin: 0;
-        padding: 0;
         font-family: 'Poppins', sans-serif;
         color: white !important;
     }
-
-    body {
-        display: flex;
-        background: #edecec;
-        min-height: 100vh;
-        padding: 0 10px;
-        align-items: center;
-        justify-content: center;
-    }
-
     .calendar-container {
         background: #484747;
         width: 320px;                
@@ -259,7 +245,10 @@
                 highlightStyle = `style="background-color: rgba(105, 255, 100, ${opacity}); border-radius:50%;"`;
             }
 
-            lit += `<li class="${isToday}" data-day="${i}" ${highlightStyle}>${i}</li>`;
+            lit += `
+                <li class="${isToday}" data-day="${i}" ${highlightStyle}>
+                <a href="detail.php?id=${i}">${i}</a>
+                </li>`;
         }
 
 
@@ -313,5 +302,5 @@
         });
     });
 
-    get_Data();
+    getData();
 </script>
