@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="style.css">
+
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,
         FILL,GRAD@20..48,100..700,0..1,-50..200">
-</head>
+
 <?php include("../templates/header.php"); ?>
 <body>
     <div class="calendar-container">
@@ -38,133 +35,8 @@
     <script src="script.js"></script>
 
 </body>
-</html>
 <?php include("../templates/footer.php"); ?>
-<style>
-    * {
-        font-family: 'Poppins', sans-serif;
-        color: white !important;
-    }
-    .calendar-container {
-        background: #484747;
-        width: 320px;                
-        border-radius: 10px;
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-    }
 
-    .calendar-container header {
-        display: flex;
-        align-items: center;
-        padding: 15px 20px 8px;     
-        justify-content: space-between;
-    }
-
-    header .calendar-navigation {
-        display: flex;
-    }
-
-    header .calendar-navigation span {
-        height: 30px;              
-        width: 30px;
-        margin: 0 2px;
-        cursor: pointer;
-        text-align: center;
-        line-height: 30px;
-        border-radius: 50%;
-        user-select: none;
-        color: #aeabab;
-        font-size: 1.4rem;          
-    }
-
-    .calendar-navigation span:last-child {
-        margin-right: -8px;
-    }
-
-    header .calendar-navigation span:hover {
-        background: #f2f2f2;
-    }
-
-    header .calendar-current-date {
-        font-weight: 500;
-        font-size: 1.2rem;        
-    }
-
-    .calendar-body {
-        padding: 10px;     
-    }
-
-    .calendar-body ul {
-        list-style: none;
-        flex-wrap: wrap;
-        display: flex;
-        text-align: center;
-    }
-
-    .calendar-body .calendar-dates {
-        margin-bottom: 10px;    
-        width: 100%;
-    }
-
-    .calendar-body li {
-        width: calc(100% / 7);
-        height: 30px;               
-        line-height: 30px;          
-        font-size: 0.9rem;          
-        color: #414141;
-        margin-top: 20px;           
-        position: relative;
-        z-index: 1;
-        cursor: pointer;
-        text-align: center;
-        box-sizing: border-box;
-    }
-
-    .calendar-body .calendar-weekdays li {
-        cursor: default;
-        font-weight: 500;
-        font-size: 0.85rem;         
-    }
-
-    .calendar-dates li.inactive {
-        color: #aaa;
-        cursor: default;
-    }
-
-    .calendar-dates li.active {
-        color: #fff;
-    }
-    .calendar-dates li::before {
-        position: absolute;
-        content: "";
-        z-index: -1;
-        top: 50%;
-        left: 50%;
-        width: 30px;             
-        height: 30px;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .calendar-dates li.active::before {
-        background: #6964ff;
-    }
-
-    .calendar-dates li:not(.active):not(.highlight):hover::before {
-        background: #858484;
-    }
-
-    .calendar-dates li.highlight {
-        background: transparent !important;          
-        border: 2px dotted #38f3b1 !important;       
-        border-radius: 50%;                           
-        position: relative;
-        z-index: 10;
-        height: 30px;
-        line-height: 30px;
-        text-align: center;
-        width: calc(100% / 7);
-    }
-</style>
 <script>
     let activityMap = {};
     let maxActivity = 0;
@@ -242,7 +114,7 @@
 
             if (activityCount > 0) {
                 let opacity = 0.2 + (0.8 * intensity);
-                highlightStyle = `style="background-color: rgba(105, 255, 100, ${opacity}); border-radius:50%;"`;
+                highlightStyle = `style="--activity-bg: rgba(105, 255, 100, ${opacity});"`;
             }
 
             lit += `
