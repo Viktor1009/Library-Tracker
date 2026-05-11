@@ -4,42 +4,49 @@
 
 <a href="index.php">Dashboard</a>
 <main id="add">
-    <form method="POST" enctype="multipart/form-data">
+    <form method="POST">
         <p>Add New Book</p>
         <input type="text" name="name" placeholder="name">
         <input class="btn btn-primary" type="submit" value="add_book" name="posttype">
     </form>
-</main>
+
 
 <?php
 
 require("../../conn.php");
-if($_POST){
-    if($_POST["posttype"] == "add_book"){
-        echo "add_book";
 
-        $sql = "SELECT * FROM Books WHERE book_name LIKE '%".$_POST["name"]."%'";
-        $result = $conn->query($sql);
-        
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    if($_POST["posttype"] == "add_book"){
+
+        $stmt = $conn->prepare("SELECT * FROM Books WHERE book_name LIKE ?");
+        $search = "%" . $_POST["name"] . "%";
+        $stmt->bind_param("s", $search);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
         if($result->num_rows > 0){
+            echo "<p>Similar books:</p>";
+
             while($row = $result->fetch_assoc()){
-                echo   
-                '<a href="private_input.php?name='.$row["book_name"].'">
-                    <button>'.$row["book_name"].'</button>
-                </a>';
+                echo '
+                <a href="private_input.php?name='.$row["book_name"].'">
+                    '.$row["book_name"].'
+                </a><br>';
             }
-        } 
-        else {
-        echo
-        '<a href="public_input.php?name='.$_POST["name"].'">
-            <button>Add '.$_POST["name"]. '</button>
-        </a>';
         }
-        
+        if('name' !== 'book_name'){
+             echo '
+            <br>
+            <a href="public_input.php?name='.$_POST["name"].'">
+                Add new: '.$_POST["name"].'
+            </a>';
+        }
     }
 }
 $conn->close();
 
 ?>
-
+</main>
 <?php include("../templates/footer.php"); ?>
