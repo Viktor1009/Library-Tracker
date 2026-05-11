@@ -115,12 +115,18 @@
             if (activityCount > 0) {
                 let opacity = 0.2 + (0.8 * intensity);
                 highlightStyle = `style="--activity-bg: rgba(105, 255, 100, ${opacity});"`;
-            }
 
-            lit += `
+                lit += `
                 <li class="${isToday}" data-day="${i}" ${highlightStyle}>
                     <a href="detail.php?date=${year}-${String(month + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}">${i}</a>
                 </li>`;
+            }
+            else {
+                lit += `
+                    <li class="${isToday}" data-day="${i}" ${highlightStyle}>
+                        ${i}
+                    </li>`;
+            }
         }
 
 
