@@ -48,6 +48,14 @@
                     type="text" name="update_description" placeholder="description"
                     readonly class="read-only"
                     ><?php echo $row["book_description"];?></textarea>
+                <input type="radio" id="html" name="fav_language" value="Reading">
+                <label for="html">Reading</label><br>
+                <input type="radio" id="html" name="fav_language" value="Plan to Read">
+                <label for="html">Plan to Read</label><br>
+                <input type="radio" id="html" name="fav_language" value="On Hold">
+                <label for="html">On Hold</label><br>
+                <input type="radio" id="html" name="fav_language" value="Dropped">
+                <label for="html">Dropped</label><br>
                 <input 
                     type="number" name="update_page" min="0"
                     value="<?php echo $row["book_page"];?>">  
