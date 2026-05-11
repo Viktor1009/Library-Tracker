@@ -1,5 +1,5 @@
 <?php include("../templates/header.php"); ?>
-
+<div class="detail-container">
 <?php
 
 $date = $_GET["date"] ?? "";
@@ -14,7 +14,7 @@ $data = [];
 
 while($row = $result->fetch_assoc()){ 
     ?>
-    <div>
+    <div class="activity-detail">
         <h4><?php echo $row["edited_at"] ?></h4>
         <div>
             <h5><?php echo $row["book_name"] ?></h5>
@@ -27,25 +27,6 @@ while($row = $result->fetch_assoc()){
 
 
 ?>
-
-<script>
-
-    async function getData() {
-        let res = await fetch("http://library-tracker.local:8080/fetch/activity.php");
-        let data = await res.json();
-
-        data.forEach(item => {
-            let book_id = item.book_id;
-            let [activity_day, activity_time] = item.activity_date.split(" ");
-
-            //console.log("Book ID:", book_id);
-            console.log("Day:", activity_day);
-            //console.log("Time:", activity_time);
-
-        });
-    }
-
-    getData();
-</script>
+</div>
 
 <?php include("../templates/footer.php"); ?>
