@@ -104,7 +104,7 @@
         for (let i = 1; i <= lastdate; i++) {
             let isToday = (i === date.getDate()
             && month === new Date().getMonth()
-            && year === new Date().getFullYear()) ? "active" : "";
+            && year === new Date().getFullYear()) ? "active" : ""; // Den dagen som är idag
 
             let dayString = `${year}-${String(month + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
             let activityCount = activityMap[dayString] || 0;
@@ -119,7 +119,7 @@
 
             lit += `
                 <li class="${isToday}" data-day="${i}" ${highlightStyle}>
-                <a href="detail.php?id=${i}">${i}</a>
+                    <a href="detail.php?date=${year}-${String(month + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}">${i}</a>
                 </li>`;
         }
 
