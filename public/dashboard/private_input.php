@@ -25,8 +25,24 @@ $book_id = $row['book_id'];
         readonly class="read-only">
         <?php echo htmlspecialchars($description); ?>
     </textarea>
-    <input 
-        type="text" name="status" placeholder="status">
+    <div>
+        <div>
+            <label for="html">Reading</label>
+            <input type="radio" name="book_status" value="Reading">
+        </div>
+        <div>
+            <label for="html">Plan to Read</label>
+            <input type="radio" name="book_status" value="Plan to Read">
+        </div>
+        <div>
+            <label for="html">On Hold</label>
+            <input type="radio" name="book_status" value="On Hold">
+        </div>
+        <div>
+            <label for="html">Dropped</label>
+            <input type="radio" name="book_status" value="Dropped">
+        </div>
+    </div>
     <input 
         type="text" name="page" placeholder="page">
     <textarea
@@ -42,8 +58,11 @@ if ($_POST) {
         $sql = "INSERT INTO Library (user_id, book_id, book_status, book_page, book_notes) VALUES (?, ?, ?, ?, ?)";
 
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("iisss", $user_id, $book_id, $_POST['status'], $_POST['page'], $_POST['notes']);
+        $stmt->bind_param("iisss", $user_id, $book_id, $_POST['book_status'], $_POST['page'], $_POST['notes']);
         $stmt->execute();
+
+        header("Location: index.php");
+        exit();
     }
 }
 ?>

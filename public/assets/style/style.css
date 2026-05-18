@@ -59,26 +59,26 @@ header {
   color: #f3f1de;
   height: 100px;
 }
-
 header img.logo {
   position: relative;
   padding: 10px;
 }
-
 header h1 {
   align-self: center;
 }
-
-a {
+header a {
   margin-left: 50px;
   display: flex;
 }
-
-a button {
+header a button {
   align-self: center;
 }
-
-.logo-dash {
+header a.title {
+  text-decoration: none;
+  color: white;
+  margin: 0px;
+}
+header .logo-dash {
   margin: 0px;
   padding: 0px;
 }
@@ -129,5 +129,121 @@ form.input * {
 }
 
 form.input textarea {
+  min-height: 100px;
   height: 150px;
+}
+
+.calendar-container {
+  background: #484747;
+  width: 320px;
+  border-radius: 10px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  margin: 50px auto;
+  padding: 0px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: -15px -15px 10px -15px; /* <-- drar ut den */
+  padding: 15px;
+  background: #1a1b26; /* matcha din theme */
+  border-radius: 10px 10px 0 0;
+}
+
+.calendar-current-date {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.calendar-navigation span {
+  cursor: pointer;
+  padding: 5px;
+}
+
+.calendar-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+}
+
+.calendar-weekdays,
+.calendar-dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.calendar-weekdays li,
+.calendar-dates li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-weekdays li {
+  font-weight: 500;
+  font-size: 0.85rem;
+  margin-bottom: 5px;
+  color: #ccc;
+}
+
+.calendar-dates li {
+  aspect-ratio: 1/1;
+  position: relative;
+  color: white;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.calendar-dates li.inactive {
+  color: #777;
+  cursor: default;
+}
+
+.calendar-dates li::before {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  z-index: -1;
+  transition: 0.2s;
+  background: var(--activity-bg, transparent);
+}
+
+.calendar-dates li:hover::before {
+  background: rgba(150, 150, 150, 0.4);
+}
+
+.calendar-dates li.active::before {
+  background: #6964ff !important;
+  width: 80%;
+  height: 80%;
+}
+
+.calendar-dates li a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+}
+
+div.detail-container {
+  background-color: #1a1b26;
+  border: 2px solid #333;
+  padding: 5px;
+}
+
+div.activity-detail {
+  background-color: #1a1b26;
+  border: 2px solid #333;
+  border-radius: 5px;
 }/*# sourceMappingURL=style.css.map */

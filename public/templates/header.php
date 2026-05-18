@@ -14,12 +14,17 @@
         <a href="../dashboard/index.php" class="logo-dash">
             <img class="logo"src="../assets/img/Library-Tracker-Logo.png" alt="">
         </a>
-        <h1>Library-Tracker</h1>
+        <a href="../dashboard/index.php" class="title"><h1>Library-Tracker</h1></a>
+        
         <?php
         if($conn) {
             echo 
                 '<a href="../dashboard/add.php">
                     <button class="btn">Add a Book</button>
+                </a>';
+            echo
+                '<a href="../fetch/index.php">
+                    <button class="btn">Track Activity</button>
                 </a>';
         }
         ?>

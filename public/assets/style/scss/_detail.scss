@@ -1,0 +1,13 @@
+@use "variable";
+
+div.detail-container {
+    background-color: variable.$accent-color;
+    border: 2px solid variable.$border-color;
+    padding: 5px;
+}
+
+div.activity-detail {
+    background-color: variable.$accent-color;
+    border: 2px solid variable.$border-color;
+    border-radius: 5px;
+}

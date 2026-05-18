@@ -21,7 +21,8 @@ $sql = "CREATE TABLE IF NOT EXISTS Library (
     book_id INT,
     book_page INT,
     book_status VARCHAR(50),
-    book_your_rating float,
+    book_rating INT,
+    book_review VARCHAR(200),
     book_notes VARCHAR(200),
 
     FOREIGN KEY (user_id) REFERENCES Users(user_id)

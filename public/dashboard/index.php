@@ -7,7 +7,7 @@
 
 <?php
 
-    $sql = "SELECT Library.book_id, Library.book_your_rating, Library.book_status, Library.book_page, Books.book_name
+    $sql = "SELECT Library.book_id, Library.book_rating, Library.book_status, Library.book_page, Books.book_name
     from Library
     INNER JOIN Books on Library.book_id = Books.book_id";
 
@@ -19,7 +19,7 @@
                 <?php echo $row["book_name"]; ?>
             </a>
             <h5>
-                <?php echo $row["book_your_rating"]; ?>
+                <?php echo $row["book_rating"]; ?>
             </h5>
             <h5>
                 <?php echo $row["book_status"]; ?>
