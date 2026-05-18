@@ -14,7 +14,8 @@
         <a href="../dashboard/index.php" class="logo-dash">
             <img class="logo"src="../assets/img/Library-Tracker-Logo.png" alt="">
         </a>
-        <h1>Library-Tracker</h1>
+        <a href="../dashboard/index.php" class="title"><h1>Library-Tracker</h1></a>
+        
         <?php
         if($conn) {
             echo 

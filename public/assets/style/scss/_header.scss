@@ -23,9 +23,15 @@ header {
     a button {
         align-self: center;
     }
+    a.title {
+        text-decoration: none;
+        color: white;
+        margin: 0px;
+    }
 
     .logo-dash {
         margin: 0px;
         padding: 0px;
     }
+
 }
