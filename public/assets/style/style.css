@@ -124,6 +124,7 @@ form.input * {
 }
 
 form.input textarea {
+  min-height: 100px;
   height: 150px;
 }
 
