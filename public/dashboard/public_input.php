@@ -30,14 +30,8 @@ if ($_POST) {
         $stmt->bind_param("ss", $name, $description);
         $stmt->execute();
 
-        echo 
-            '<a href="private_input.php?name='.$name.'">
-                <button>Add "'.$name.'" to your Library</button>
-            </a>';
-        echo
-            '<a href="add.php">
-                <button>Add another book to the Database </button>
-            </a>';
+        header("Location: private_input.php?name=".$name);
+        exit();
     }
 }
 ?>

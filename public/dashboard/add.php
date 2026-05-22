@@ -39,8 +39,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if('name' !== 'book_name'){
              echo '
             <br>
+            <p>Add new:</p>
             <a href="public_input.php?name='.$_POST["name"].'">
-                Add new: '.$_POST["name"].'
+                '.$_POST["name"].'
             </a>';
         }
     }
