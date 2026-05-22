@@ -14,11 +14,11 @@ div.book div.book_name {
 }
 
 div.book div.book_rating {
-  width: 10%;
+  width: 15%;
 }
 
 div.book div.book_status {
-  width: 30%;
+  width: 25%;
 }
 
 div.book div.book_page {
@@ -33,6 +33,12 @@ div.book h5 {
 div.book a {
   padding-left: 10px;
   align-self: center;
+}
+
+div.book_rating img {
+  position: relative;
+  height: 55%;
+  top: 15%;
 }
 
 footer {

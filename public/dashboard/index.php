@@ -21,8 +21,11 @@
                 </a>
             </div>
             <div class="book_rating">
+                <img src="../assets/img/star_PNG41449.png" alt="">
                 <h5>
-                    <?php echo $row["book_rating"]; ?>
+                    <?php echo $row["book_rating"]; 
+                    if(!$row["book_rating"])echo "0"
+                        ?>
                 </h5>
             </div>
             <div class="book_status">
