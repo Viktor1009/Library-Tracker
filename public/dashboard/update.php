@@ -106,6 +106,11 @@
                     name="update_notes"
                     <?php if($isComplete) echo "readonly"; ?>
                     ><?php echo $row["book_notes"];?></textarea>
+                <?php if($isComplete){ ?>
+                    <textarea 
+                        name="complete_review" readonly
+                        ><?php echo $row["book_review"];?></textarea>
+                <?php } ?>
 
                 <?php if(!$isComplete){ ?>
                     <input class="btn btn-primary" type="submit" name="posttype" value="Update">
