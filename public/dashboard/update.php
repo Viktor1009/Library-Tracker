@@ -31,43 +31,91 @@
     $sql = "SELECT * FROM Library
     INNER JOIN Books on Library.book_id = Books.book_id
     WHERE Books.book_id=" . $_GET["id"];
-
+    
     $result = $conn->query($sql);
     if($result->num_rows > 0){
-        while($row = $result->fetch_assoc()){ ?>
+        while($row = $result->fetch_assoc()){ 
+            $isComplete = $row["book_status"] === "Complete";?>
+
             <form method="post" enctype="multipart/form-data" class="input">
                 <input 
-                    type="text" name="update_id" 
+                    type="text" 
+                    name="update_id" 
                     value="<?php echo $row["book_id"]?>" 
                     hidden>
                 <input 
-                    type="text" name="update_name" placeholder="name" 
+                    type="text" 
+                    name="update_name"
                     value="<?php echo $row["book_name"];?>"
-                    readonly class="read-only">
+                    readonly
+                    class="read-only">
                 <textarea 
-                    type="text" name="update_description" placeholder="description"
-                    readonly class="read-only"
-                    ><?php echo $row["book_description"];?></textarea>
-                <input type="radio" id="html" name="fav_language" value="Reading">
-                <label for="html">Reading</label><br>
-                <input type="radio" id="html" name="fav_language" value="Plan to Read">
-                <label for="html">Plan to Read</label><br>
-                <input type="radio" id="html" name="fav_language" value="On Hold">
-                <label for="html">On Hold</label><br>
-                <input type="radio" id="html" name="fav_language" value="Dropped">
-                <label for="html">Dropped</label><br>
+                    name="update_description"
+                    readonly
+                    class="read-only"><?php echo $row["book_description"];?></textarea>
+                <div class="Radio">
+                    <div>
+                        <label>Reading</label>
+                        <input 
+                            type="radio" 
+                            name="update_status" 
+                            value="Reading"
+                            <?php if($row["book_status"] == "Reading") echo "checked"; ?>
+                            <?php if($isComplete) echo "disabled"; ?>>
+                    </div>
+                    <div>
+                        <label>Plan to Read</label>
+                        <input 
+                            type="radio" 
+                            name="update_status" 
+                            value="Plan to Read"
+                            <?php if($row["book_status"] == "Plan to Read") echo "checked"; ?>
+                            <?php if($isComplete) echo "disabled"; ?>>
+                    </div>
+                    <div>
+                        <label>On Hold</label>
+                        <input 
+                            type="radio" 
+                            name="update_status" 
+                            value="On Hold"
+                            <?php if($row["book_status"] == "On Hold") echo "checked"; ?>
+                            <?php if($isComplete) echo "disabled"; ?>>
+                    </div>
+                    <div>
+                        <label>Dropped</label>
+                        <input 
+                            type="radio" 
+                            name="update_status" 
+                            value="Dropped"
+                            <?php if($row["book_status"] == "Dropped") echo "checked"; ?>
+                            <?php if($isComplete) echo "disabled"; ?>>
+                    </div>
+                </div>
                 <input 
-                    type="number" name="update_page" min="0"
-                    value="<?php echo $row["book_page"];?>">  
+                    type="number"
+                    name="update_page"
+                    min="0"
+                    value="<?php echo $row["book_page"];?>"
+                    <?php if($isComplete) echo "readonly"; ?>>
                 <input 
-                    type="number" name="old_update_page" min="0"
-                    value="<?php echo $row["book_page"];?>" hidden>  
-                <!-- Din personliga rating bör vara en slider-->
+                    type="number"
+                    name="old_update_page"
+                    value="<?php echo $row["book_page"];?>"
+                    hidden>
                 <textarea 
-                    type="text"name="update_notes"
+                    name="update_notes"
+                    <?php if($isComplete) echo "readonly"; ?>
                     ><?php echo $row["book_notes"];?></textarea>
-                <input class="btn btn-primary" type="submit" name="posttype" value="Update">
-                
+
+                <?php if(!$isComplete){ ?>
+                    <input class="btn btn-primary" type="submit" name="posttype" value="Update">
+                    <a 
+                        class="btn btn-primary"
+                        href="complete.php?id=<?php echo $row["book_id"]; ?>">
+                        Complete
+                    </a>
+                <?php } ?>
+
             </form>
         <?php
         }   
