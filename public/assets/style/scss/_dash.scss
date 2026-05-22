@@ -5,11 +5,28 @@ div.book {
     height: 50px;
     background-color: variable.$accent-color;
     border: 2px solid variable.$border-color;
+    
+}
+div.book div {
+    display: flex;
+}
+div.book div.book_name {
+    width: 40%;
+}
+div.book div.book_rating {
+    width: 10%;
+}
+div.book div.book_status {
+    width: 30%;
+}
+div.book div.book_page {
+    width: 20%;
 }
 div.book h5 {
     padding-left: 10px;
     align-self: center;
 }
 div.book a {
+    padding-left: 10px;
     align-self: center;
 }

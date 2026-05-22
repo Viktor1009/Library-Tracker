@@ -15,21 +15,26 @@
     if($result->num_rows > 0){
         while($row = $result->fetch_assoc()){ ?>
         <div class="book">
-            <a href="update.php?id=<?php echo $row["book_id"]; ?>">
-                <?php echo $row["book_name"]; ?>
-            </a>
-            <h5>
-                <?php echo $row["book_rating"]; ?>
-            </h5>
-            <h5>
-                <?php echo $row["book_status"]; ?>
-            </h5>
-            <h5>
-                <?php echo $row["book_page"]; ?>
-            </h5>
-            <button>
-                
-            </button>
+            <div class="book_name">
+                <a href="update.php?id=<?php echo $row["book_id"]; ?>">
+                    <?php echo $row["book_name"]; ?>
+                </a>
+            </div>
+            <div class="book_rating">
+                <h5>
+                    <?php echo $row["book_rating"]; ?>
+                </h5>
+            </div>
+            <div class="book_status">
+                <h5>
+                    <?php echo $row["book_status"]; ?>
+                </h5>
+            </div>
+            <div class="book_page">
+                <h5>
+                    <?php echo $row["book_page"]; ?>
+                </h5>
+            </div>
         </div>
             
         <?php
